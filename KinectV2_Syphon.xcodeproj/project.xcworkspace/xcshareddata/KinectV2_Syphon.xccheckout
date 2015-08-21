@@ -12,26 +12,46 @@
 	<dict>
 		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
 		<string>https://github.com/openframeworks/openFrameworks.git</string>
+		<key>CFB6D2BB42626F48E663C5DFBFFA12DD3E737629</key>
+		<string>https://github.com/fred-dev/KinectV2_Syphon.git</string>
 		<key>F4CCB893AFADB97238A965FD2F28717F1CAAE613</key>
 		<string>https://github.com/astellato/ofxSyphon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>apps/myGithub/KinectV2_Syphon/KinectV2_Syphon.xcodeproj</string>
+	<string>KinectV2_Syphon.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
 		<string>../../../../..</string>
+		<key>CFB6D2BB42626F48E663C5DFBFFA12DD3E737629</key>
+		<string>../..</string>
 		<key>F4CCB893AFADB97238A965FD2F28717F1CAAE613</key>
-		<string>../../../../..addons/ofxSyphon</string>
+		<string>../../../../../addons/ofxSyphon</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/openframeworks/openFrameworks.git</string>
+	<string>https://github.com/fred-dev/KinectV2_Syphon.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</string>
+	<string>CFB6D2BB42626F48E663C5DFBFFA12DD3E737629</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CFB6D2BB42626F48E663C5DFBFFA12DD3E737629</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KinectV2_Syphon</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -39,14 +59,6 @@
 			<string>F4CCB893AFADB97238A965FD2F28717F1CAAE613</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxSyphon</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</string>
-			<key>IDESourceControlWCCName</key>
-			<string>openFrameworks</string>
 		</dict>
 	</array>
 </dict>
