@@ -42,3 +42,7 @@ Key Commands
 
 
 	
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fred-dev/kinectv2_syphon/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
