@@ -23,7 +23,11 @@ There is a settings file inside the data folder (leave the folder structure as i
 XML Settings (inside bin/data) change the values as needed
 
 "\<OPENCLDEVICE\>0\</OPENCLDEVICE\>"
-If you have a discreet and onboard GFX card try setting this to 1 otherwise leave it at 0
+Using a macbook pro retina with built in and discreet GFX I get these three devices, I am using the Nvidia device by entering 2 as the value for the openCL device
+
+0: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+1: Iris Pro (GPU INTEL)
+2: GeForce GT 750M (GPU NVIDIA)
 
 "\<FLIP\>0\</FLIP\>"
 
