@@ -8,7 +8,7 @@ For a precompiled binary visit the releases section of this repo
 
 This version requires 
 
-openframeworks 0.0.0 or later
+openframeworks 0.9.0 or later
 https://github.com/openframeworks/openFrameworks
 
 ofxMultiKinectV2 
