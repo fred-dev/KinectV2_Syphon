@@ -39,7 +39,8 @@ STRINGIFY(
 void ofApp::setup()
 {
     
-    XML.loadFile("settings");
+    
+    XML.loadFile("settings.xml");
     openCLDevice= XML.getValue("OPENCLDEVICE", 0);
     flip= XML.getValue("FLIP", 0);
     minimised = XML.getValue("MINIMISED", 0);
@@ -63,13 +64,15 @@ void ofApp::setup()
         irShader.setupShaderFromSource(GL_FRAGMENT_SHADER, irFragmentShader);
         irShader.linkProgram();
     }
-    if (openCLDevice==0) {
-        kinect.open(true, true, 0);
+    if (hasDepth||hasIr) {
+        kinect.open(hasColor, true, 0, openCLDevice);
     }
+    if (!hasDepth && !hasIr) {
+        kinect.open(hasColor, false, 0, openCLDevice);
+    }
+
     
-    if (openCLDevice==1) {
-        kinect.open(true, true, 0, 2);
-    }
+    
     
     
     // Note :
@@ -168,7 +171,7 @@ void ofApp::draw()
             depthTex.draw(0, 0, 512, 424);
             depthShader.end();
             depthFbo.end();
-            depthSyphon.publishTexture(&depthFbo.getTextureReference());
+            depthSyphon.publishTexture(&depthFbo.getTexture());
             if (!minimised) {
                 depthFbo.draw(640, 0, 512, 424);
             }
@@ -181,7 +184,7 @@ void ofApp::draw()
             irTex.draw(0, 0, 512, 424);
             irShader.end();
             irFbo.end();
-            iRSyphon.publishTexture(&irFbo.getTextureReference());
+            iRSyphon.publishTexture(&irFbo.getTexture());
             if (!minimised) {
                 irFbo.draw(1152, 0, 512, 424);
             }
