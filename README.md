@@ -8,11 +8,12 @@ For a precompiled binary visit the releases section of this repo
 
 This version requires 
 
-openframeworks 0.8.4
+openframeworks 0.0.0 or later
 https://github.com/openframeworks/openFrameworks
 
 ofxMultiKinectV2 
 https://github.com/hanasaan/ofxMultiKinectV2
+(Check the readme and dependancies)
 
 ofxSyhpon
 https://github.com/astellato/ofxSyphon
@@ -42,7 +43,3 @@ Key Commands
 
 
 	
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fred-dev/kinectv2_syphon/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

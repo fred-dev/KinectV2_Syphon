@@ -1,0 +1,5 @@
+ofxMultiKinectV2
+ofxOsc
+ofxSyphon
+ofxTurboJpeg
+ofxXmlSettings

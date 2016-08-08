@@ -46,9 +46,9 @@ void ofApp::setup()
     recievePort	= XML.getValue("RECIEVEPORT", 12334);
     sendPort =XML.getValue("SENDPORT", 12335);
     sendIp = XML.getValue("SENDIP", "127.0.0.1");
-    hasColor = XML.getValue("SENDIP", 1);
-    hasIr = XML.getValue("SENDIP", 1);
-    hasDepth = XML.getValue("SENDIP", 1);
+    hasColor = XML.getValue("HAS_COLOUR", 1);
+    hasIr = XML.getValue("HAS_IR", 1);
+    hasDepth = XML.getValue("HAS_DEPTH", 1);
     receiver.setup(recievePort);
     sender.setup(sendIp, sendPort);
     
@@ -64,11 +64,11 @@ void ofApp::setup()
         irShader.linkProgram();
     }
     if (openCLDevice==0) {
-        kinect0.open(true, true, 0);
+        kinect.open(true, true, 0);
     }
     
     if (openCLDevice==1) {
-        kinect0.open(true, true, 0, 2);
+        kinect.open(true, true, 0, 2);
     }
     
     
@@ -78,7 +78,7 @@ void ofApp::setup()
     // To avoid it, specify OpenCL device index manually like following.
     // kinect1.open(true, true, 0, 2); // GeForce on MacBookPro Retina
     
-    kinect0.start();
+    kinect.start();
     
     if (hasColor) {
         colourSyphon.setName("KinectV2 Colour");
@@ -100,17 +100,17 @@ void ofApp::setup()
 }
 
 void ofApp::update() {
-    kinect0.update();
-    if (kinect0.isFrameNew()) {
+    kinect.update();
+    if (kinect.isFrameNew()) {
         
         if (hasColor) {
-            colorTex0.loadData(kinect0.getColorPixelsRef());
+            colorTex.loadData(kinect.getColorPixelsRef());
         }
         if (hasDepth) {
-            depthTex0.loadData(kinect0.getDepthPixelsRef());
+            depthTex.loadData(kinect.getDepthPixelsRef());
         }
         if (hasIr) {
-            irTex0.loadData(kinect0.getIrPixelsRef());
+            irTex.loadData(kinect.getIrPixelsRef());
         }
     }
     
@@ -119,13 +119,16 @@ void ofApp::update() {
         receiver.getNextMessage(&m);
         
         if ( m.getAddress() == "/minimise" ){
+            minimised=m.getArgAsInt32(0);
+            
             if (minimised) {
                 ofSetWindowShape(1024, 50);
             }
             if (!minimised) {
                 ofSetWindowShape(640+512+512, 424);
             }
-            minimised=m.getArgAsInt32(0);
+            
+            
             ofxOscMessage  myMessage;
             myMessage.setAddress("/minimise");
             myMessage.addIntArg(minimised);
@@ -148,21 +151,21 @@ void ofApp::draw()
     
     
     if (hasColor) {
-        if (colorTex0.isAllocated()) {
+        if (colorTex.isAllocated()) {
             if (!minimised) {
-                colorTex0.draw(0, 0, 640, 360);
+                colorTex.draw(0, 0, 640, 360);
             }
-            colourSyphon.publishTexture(&colorTex0);
+            colourSyphon.publishTexture(&colorTex);
         }
     }
     
     
-    if (depthTex0.isAllocated()) {
+    if (depthTex.isAllocated()) {
         if (hasDepth) {
             depthFbo.begin();
             ofClear(0, 0, 0);
             depthShader.begin();
-            depthTex0.draw(0, 0, 512, 424);
+            depthTex.draw(0, 0, 512, 424);
             depthShader.end();
             depthFbo.end();
             depthSyphon.publishTexture(&depthFbo.getTextureReference());
@@ -175,7 +178,7 @@ void ofApp::draw()
             irFbo.begin();
             ofClear(0,0,0);
             irShader.begin();
-            irTex0.draw(0, 0, 512, 424);
+            irTex.draw(0, 0, 512, 424);
             irShader.end();
             irFbo.end();
             iRSyphon.publishTexture(&irFbo.getTextureReference());
@@ -196,7 +199,7 @@ void ofApp::draw()
 void ofApp::keyPressed(int key)
 {
     if (key == 'f') {
-        kinect0.setEnableFlipBuffer(!kinect0.isEnableFlipBuffer());
+        kinect.setEnableFlipBuffer(!kinect.isEnableFlipBuffer());
         ofxOscMessage  myMessage;
         myMessage.setAddress("/flip");
         myMessage.addIntArg(flip);
@@ -220,7 +223,7 @@ void ofApp::keyPressed(int key)
     
 }
 void ofApp::exit(){
-    kinect0.close();
+    kinect.close();
     
 }
 //--------------------------------------------------------------

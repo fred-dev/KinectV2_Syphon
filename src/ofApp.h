@@ -25,14 +25,10 @@ class ofApp : public ofBaseApp{
     ofShader depthShader;
     ofShader irShader;
     ofxXmlSettings XML;
-    ofxMultiKinectV2 kinect0;
-    ofxMultiKinectV2 kinect1;
-    ofTexture colorTex0;
-    ofTexture colorTex1;
-    ofTexture depthTex0;
-    ofTexture depthTex1;
-    ofTexture irTex0;
-    ofTexture irTex1;
+    ofxMultiKinectV2 kinect;
+    ofTexture colorTex;
+    ofTexture depthTex;
+    ofTexture irTex;
     ofxSyphonServer colourSyphon, depthSyphon, iRSyphon;
     ofFbo irFbo, depthFbo;
     int openCLDevice;
